@@ -1,0 +1,17 @@
+payload:
+  - SRC-IP-CIDR,10.10.10.198/32,no-resolve
+  - SRC-IP-CIDR,10.10.10.197/32,no-resolve
+  - SRC-IP-CIDR,10.10.10.196/32,no-resolve
+  - SRC-IP-CIDR,10.10.10.194/32,no-resolve
+  - SRC-IP-CIDR,10.10.10.199/32,no-resolve
+  - DOMAIN-SUFFIX,miningocean.org
+  - DOMAIN-SUFFIX,ekapool.com 
+  - DOMAIN-KEYWORD,teamredminer
+  - DOMAIN-SUFFIX,zeph.cyberaihk.com
+  - DOMAIN-KEYWORD,ethermine
+  - DOMAIN-KEYWORD,poolflare
+  - DOMAIN-SUFFIX,whalestonpool.com 
+  - DOMAIN-SUFFIX,ezil.me 
+  - DOMAIN-SUFFIX,hiveos.farm 
+  # - DOMAIN-KEYWORD,hive 
+  - DOMAIN-SUFFIX,herominers.com 

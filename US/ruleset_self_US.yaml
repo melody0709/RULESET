@@ -1,0 +1,29 @@
+payload:
+  - DOMAIN-SUFFIX,fanart.tv
+  - DOMAIN-SUFFIX,zephyrprotocol.com
+  - DOMAIN-SUFFIX,ztorrents.net
+  - DOMAIN-SUFFIX,miningpoolstats.stream
+  - DOMAIN-SUFFIX,maying.club
+  - DOMAIN-SUFFIX,time.android.com
+  - DOMAIN-SUFFIX,bimobject.com
+  - DOMAIN-SUFFIX,polantis.com
+  - DOMAIN-SUFFIX,docker.com
+  - DOMAIN-SUFFIX,v2ex.com
+  - DOMAIN-SUFFIX,auth0.com
+  - DOMAIN-SUFFIX,sms-activate.io
+  - DOMAIN-SUFFIX,v2rayssr.com
+  - DOMAIN-SUFFIX,bulianglin.com
+  - DOMAIN-SUFFIX,kuromis.com
+  - DOMAIN-SUFFIX,winstall.app
+  - DOMAIN-SUFFIX,gemini.google.com
+  - DOMAIN-SUFFIX,suno.com
+  - DOMAIN-SUFFIX,kuroapi.com
+  - DOMAIN-SUFFIX,vercel.com
+  - DOMAIN,servd-anthropic-website.b-cdn.net   #AI
+  - DOMAIN-SUFFIX,anthropic.com
+  - DOMAIN-SUFFIX,claude.ai
+  - DOMAIN-SUFFIX,colab.google
+  - DOMAIN-SUFFIX,meta.ai
+  - DOMAIN-SUFFIX,websim.ai
+
+  
