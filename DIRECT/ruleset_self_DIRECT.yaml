@@ -25,6 +25,8 @@ payload:
   - DOMAIN-SUFFIX,imgyzzy.com
 
   - DOMAIN-SUFFIX,klmdns.com       #kuromis 服务器地址
+  - DOMAIN-SUFFIX,kuromidns.com   
+
 
   - DOMAIN-SUFFIX,hk.zephyr.gfwroute.com
 
