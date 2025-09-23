@@ -2,6 +2,10 @@ payload:
   - SRC-IP-CIDR,10.10.10.70/26,no-resolve
   - DOMAIN-SUFFIX,test-ipv6.com
 
+  - DOMAIN-KEYWORD,bennq,DIRECT
+  - DOMAIN-SUFFIX,bennq.top,DIRECT
+
+
   - DOMAIN-SUFFIX,speed.neu6.edu.cn  #DDNS-GO
   - DOMAIN-SUFFIX,v6.ident.me
   - DOMAIN-SUFFIX,6.ipw.cn
