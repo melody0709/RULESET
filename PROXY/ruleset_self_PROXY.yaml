@@ -3,12 +3,8 @@ payload:
   - DOMAIN-SUFFIX,api.revanced.app #测试
   - DOMAIN-SUFFIX,benchmate.org 
   - DOMAIN-SUFFIX,karhu.com
-
-
-
   - DOMAIN-SUFFIX,keeflys.com
   - DOMAIN-SUFFIX,dangsfly.com
   - DOMAIN-SUFFIX,cloudflare.com
-
   - DOMAIN-SUFFIX,teamviewer.com
-
+  - DOMAIN-SUFFIX,mousegesturesapi.com
