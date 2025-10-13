@@ -1,5 +1,5 @@
 payload:
-  - SRC-IP-CIDR,10.10.10.70/26
+  - SRC-IP-CIDR,10.10.10.70/26,no-resolve
   - DOMAIN-SUFFIX,test-ipv6.com
 
   - DOMAIN-SUFFIX,bennq.top
