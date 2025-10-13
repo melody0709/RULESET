@@ -1,7 +1,5 @@
 payload:
   - SRC-IP-CIDR,10.10.10.213/32,no-resolve
   - SRC-IP-CIDR,10.10.10.189/32,no-resolve
-  - SRC-IP-CIDR,10.10.10.204/32,no-resolve
-
 
   
