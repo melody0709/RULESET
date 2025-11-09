@@ -1,23 +1,17 @@
 payload:
   - SRC-IP-CIDR,10.10.10.70/26,no-resolve
   - DOMAIN-SUFFIX,test-ipv6.com
-
   - DOMAIN-SUFFIX,bennq.top
-
-
   - DOMAIN-SUFFIX,speed.neu6.edu.cn  #DDNS-GO
   - DOMAIN-SUFFIX,v6.ident.me
   - DOMAIN-SUFFIX,6.ipw.cn
   - DOMAIN,api.ipify.org
-
   - DOMAIN-SUFFIX,q8at0puf.jogiyw.sbs
   - DOMAIN-SUFFIX,synology.com
   - DOMAIN-SUFFIX,api.nn.ci
   - DOMAIN-SUFFIX,smtp
   - DOMAIN-SUFFIX,api.mcneel.com
   - DOMAIN-SUFFIX,tvfix.org
-
-
   - DOMAIN-SUFFIX,jsdelivr.net
   - DOMAIN-SUFFIX,ghproxy.com
   - DOMAIN-SUFFIX,immersivetranslate.com 
@@ -26,11 +20,8 @@ payload:
   - DOMAIN-KEYWORD,wogg
   - DOMAIN-KEYWORD,wujinpp
   - DOMAIN-SUFFIX,imgyzzy.com
-
   - DOMAIN-SUFFIX,klmdns.com       #kuromis 服务器地址
   - DOMAIN-SUFFIX,kuromidns.com   
-
-
   - DOMAIN-SUFFIX,hk.zephyr.gfwroute.com
 
 
