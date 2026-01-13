@@ -25,5 +25,6 @@ payload:
   - DOMAIN-SUFFIX,hk.zephyr.gfwroute.com
 
 
-
+  - DOMAIN-KEYWORD,360zy  #360采集
+  - DOMAIN-KEYWORD,libvio
 
