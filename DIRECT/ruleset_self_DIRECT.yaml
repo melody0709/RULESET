@@ -29,3 +29,7 @@ payload:
   - DOMAIN-KEYWORD,libvio
   - DOMAIN-KEYWORD,argotunnel
   - DST-PORT,7844
+
+  - DOMAIN-SUFFIX,163189.xyz
+  - DOMAIN-SUFFIX,4666888.xyz
+
