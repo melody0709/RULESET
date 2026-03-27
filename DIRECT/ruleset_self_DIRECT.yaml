@@ -24,12 +24,21 @@ payload:
   - DOMAIN-SUFFIX,kuromidns.com   
   - DOMAIN-SUFFIX,hk.zephyr.gfwroute.com
 
-
   - DOMAIN-KEYWORD,360zy  #360采集
   - DOMAIN-KEYWORD,libvio
   - DOMAIN-KEYWORD,argotunnel
   - DST-PORT,7844
 
-  # - DOMAIN-SUFFIX,163189.xyz
-  # - DOMAIN-SUFFIX,4666888.xyz
+  # --- 新增/更新的 IPTV 频道域名 ---
+  - DOMAIN-SUFFIX,163189.xyz
+  - DOMAIN-SUFFIX,4666888.xyz
+  - DOMAIN-SUFFIX,loc.cc
+  - DOMAIN-SUFFIX,jdshipin.com
+  - DOMAIN-SUFFIX,livelivelive.space
+  - DOMAIN-SUFFIX,xiazhix1.top
+  - DOMAIN-SUFFIX,eztv.vip
+  - DOMAIN,ntd02.akamaized.net
 
+  # --- IPTV 直连 IP 地址 ---
+  - IP-CIDR,61.184.46.85/32,no-resolve
+  - IP-CIDR,8.138.7.223/32,no-resolve
