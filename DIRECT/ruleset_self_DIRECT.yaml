@@ -42,3 +42,6 @@ payload:
   # --- IPTV 直连 IP 地址 ---
   - IP-CIDR,61.184.46.85/32,no-resolve
   - IP-CIDR,8.138.7.223/32,no-resolve
+
+
+  - DOMAIN-SUFFIX,bytedance.com
