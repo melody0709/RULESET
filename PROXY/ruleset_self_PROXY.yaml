@@ -12,3 +12,4 @@ payload:
   - DOMAIN-KEYWORD,dbzy  #douban采集
 
   - DOMAIN-KEYWORD,proxy=true #iptv
+  - DOMAIN-SUFFIX,cursor.com
