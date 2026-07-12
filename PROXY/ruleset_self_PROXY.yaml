@@ -13,3 +13,5 @@ payload:
 
   - DOMAIN-KEYWORD,proxy=true #iptv
   - DOMAIN-SUFFIX,cursor.com
+
+  - DOMAIN-SUFFIX,api.krill-ai.com
