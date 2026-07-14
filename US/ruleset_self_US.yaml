@@ -17,3 +17,4 @@ payload:
   - DOMAIN-SUFFIX,winstall.app
   - DOMAIN-SUFFIX,kuroapi.com
   - DOMAIN-SUFFIX,vercel.com
+  - DOMAIN-SUFFIX,krill-ai.com
