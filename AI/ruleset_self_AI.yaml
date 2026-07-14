@@ -1,9 +1,11 @@
 payload:
-  # Claude / Anthropic
+  # Claude / Anthropic（公共集已有；保留确保优先）
   - DOMAIN,servd-anthropic-website.b-cdn.net
   - DOMAIN-SUFFIX,anthropic.com
   - DOMAIN-SUFFIX,claude.ai
   - DOMAIN-SUFFIX,claude.com
+  - DOMAIN-SUFFIX,claudeusercontent.com
+  - DOMAIN-SUFFIX,clau.de
 
   # Cursor
   - DOMAIN-SUFFIX,cursor.com
@@ -11,9 +13,33 @@ payload:
   - DOMAIN-SUFFIX,cursor-cdn.com
   - DOMAIN-SUFFIX,cursorapi.com
 
-  # Other AI
+  # xAI / Grok 补强
+  - DOMAIN-SUFFIX,x.ai
+  - DOMAIN-SUFFIX,grok.com
+  - DOMAIN-SUFFIX,grokipedia.com
+
+  # Google AI 零散入口
   - DOMAIN-SUFFIX,colab.google
+  - DOMAIN-SUFFIX,colab.research.google.com
+  - DOMAIN,aistudio.google.com
+  - DOMAIN,gemini.google.com
+  - DOMAIN,notebooklm.google.com
+
+  # 其它个人常用 / 公共集易漏
   - DOMAIN-SUFFIX,meta.ai
+  - DOMAIN,imagine.meta.com
   - DOMAIN-SUFFIX,websim.ai
   - DOMAIN-SUFFIX,suno.com
+  - DOMAIN-SUFFIX,suno.ai
+  - DOMAIN-SUFFIX,openrouter.ai
+  - DOMAIN-SUFFIX,perplexity.ai
+  - DOMAIN-SUFFIX,pplx.ai
+  - DOMAIN-SUFFIX,groq.com
+  - DOMAIN-SUFFIX,together.xyz
+  - DOMAIN-SUFFIX,huggingface.co
+  - DOMAIN-SUFFIX,hf.co
+  - DOMAIN-SUFFIX,mistral.ai
+  - DOMAIN-SUFFIX,poe.com
+  - DOMAIN-SUFFIX,midjourney.com
   - DOMAIN-SUFFIX,api.krill-ai.com
+  - DOMAIN-SUFFIX,krill-ai.com
