@@ -17,3 +17,4 @@ payload:
   - DOMAIN-SUFFIX,websim.ai
   - DOMAIN-SUFFIX,suno.com
   - DOMAIN-SUFFIX,api.krill-ai.com
+  - DOMAIN,krill-ai.com
