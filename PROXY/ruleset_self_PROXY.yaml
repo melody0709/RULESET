@@ -1,7 +1,7 @@
 payload:
   - DOMAIN-SUFFIX,ajay.app
   - DOMAIN-SUFFIX,api.revanced.app #测试
-  - DOMAIN-SUFFIX,benchmate.org 
+  - DOMAIN-SUFFIX,benchmate.org
   - DOMAIN-SUFFIX,karhu.com
   - DOMAIN-SUFFIX,keeflys.com
   - DOMAIN-SUFFIX,dangsfly.com
@@ -12,6 +12,3 @@ payload:
   - DOMAIN-KEYWORD,dbzy  #douban采集
 
   - DOMAIN-KEYWORD,proxy=true #iptv
-  - DOMAIN-SUFFIX,cursor.com
-
-  - DOMAIN-SUFFIX,api.krill-ai.com
