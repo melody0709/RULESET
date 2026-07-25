@@ -48,3 +48,4 @@ payload:
   - DOMAIN-SUFFIX,sharedchat.cc
 
   - DOMAIN,api.cdn-krill-ai.com
+  - DOMAIN,api.cdn-krill-ai.net
