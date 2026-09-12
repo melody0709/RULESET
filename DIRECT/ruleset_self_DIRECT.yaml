@@ -49,3 +49,10 @@ payload:
 
   - DOMAIN,api.cdn-krill-ai.com
   - DOMAIN,api.cdn-krill-ai.net
+
+  # --- 国产 AI / 模型平台（上游 cn-lite.mrs 未收录，会一路掉到 MATCH → ⚓️Other → 🔰US）---
+  - DOMAIN-SUFFIX,hf-mirror.com        # HuggingFace 国内镜像，本就为免代理而生
+  - DOMAIN-SUFFIX,hf-api-mirror.com
+  - DOMAIN-SUFFIX,jianying.com         # 剪映 / 即梦（jimeng.jianying.com 一并覆盖）
+  - DOMAIN-SUFFIX,volcengineapi.com    # 火山引擎开放 API
+  - DOMAIN-SUFFIX,minimax.chat         # MiniMax 国内 API

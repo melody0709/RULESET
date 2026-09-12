@@ -5,7 +5,12 @@ payload:
   - DOMAIN-SUFFIX,karhu.com
   - DOMAIN-SUFFIX,keeflys.com
   - DOMAIN-SUFFIX,dangsfly.com
-  - DOMAIN-SUFFIX,cloudflare.com
+  # 原为「整域 cloudflare.com」。本表排在所有公共 AI / Apple 规则之前，
+  # 整域规则会把 gateway.ai.cloudflare.com、apple-relay.cloudflare.com、
+  # cp4.cloudflare.com 一并拖进本组 → 抢跑本该由 ai / GenAI / Apple 接管的域名。
+  # 收窄为 Turnstile 人机验证域（保持原出口不变）；其余未收录的 *.cloudflare.com
+  # 仍会由 proxy.mrs（广义代理兜底）落到本组，等价于原行为。
+  - DOMAIN-SUFFIX,challenges.cloudflare.com
   - DOMAIN-SUFFIX,teamviewer.com
   - DOMAIN-SUFFIX,mousegesturesapi.com
 

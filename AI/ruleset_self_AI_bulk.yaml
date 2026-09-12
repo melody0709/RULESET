@@ -1,0 +1,18 @@
+# AI 大流量下载域 —— 与 ruleset_self_AI 拆开，单独指向 🔰US（机场），
+# 不占用「🌄 落地节点」(DMIT) 的 300G/月 配额。
+#
+# 判定标准：单次传输可达 GB~几十 GB、且不涉及登录态/风控的 AI 资源下载。
+# 放在 rules 数组里必须早于 ruleset_self_AI，否则会被后者先命中。
+payload:
+  # HuggingFace 模型权重 / 数据集（DOMAIN-SUFFIX,hf.co 覆盖 xethub.hf.co 等镜像子域）
+  - DOMAIN-SUFFIX,huggingface.co
+  - DOMAIN-SUFFIX,hf.co
+  - DOMAIN-SUFFIX,hf.space
+
+  # Google Colab 运行时与数据集
+  - DOMAIN-SUFFIX,colab.google
+  - DOMAIN-SUFFIX,colab.research.google.com
+
+  # 其它大体积模型 / 素材站
+  - DOMAIN-SUFFIX,civitai.com
+  - DOMAIN-SUFFIX,registry.ollama.ai

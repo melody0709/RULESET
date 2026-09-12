@@ -9,7 +9,8 @@ payload:
   - DOMAIN-SUFFIX,polantis.com
   - DOMAIN-SUFFIX,docker.com
   - DOMAIN-SUFFIX,v2ex.com
-  - DOMAIN-SUFFIX,auth0.com
+  # auth0.com 已移除：本表排在公共 AI 规则之前，会把 OpenAI 等 AI 站点的
+  # 登录/风控域固定到 🔰US，与主站出口（🅰️AI）不一致。交给 ai.mrs 接管后同出口。
   - DOMAIN-SUFFIX,sms-activate.io
   - DOMAIN-SUFFIX,v2rayssr.com
   - DOMAIN-SUFFIX,bulianglin.com
