@@ -47,3 +47,11 @@ payload:
   - DOMAIN-SUFFIX,api.krill-ai.com
   - DOMAIN-SUFFIX,krill-ai.com
   - DOMAIN-SUFFIX,krill-code.com
+
+  # AI 编程 CLI（2026-09-13 实测 21 份公共 AI 表对本节全部零收录，均漏）
+  # 这些工具的 LLM API 本体（anthropic/openai/google）已由上游表覆盖 → 🅰️AI，
+  # 这里只补工具自身域名（原落点：tld-proxy → 🥖Proxy / MATCH → ⚓️Other）
+  - DOMAIN-SUFFIX,opencode.ai        # OpenCode 本体 + Zen 网关 opencode.ai/zen/v1 + api/share 子域
+  - DOMAIN-SUFFIX,opencode-zen.com   # 第三方实现用过的变体网关地址（保险条）
+  - DOMAIN-SUFFIX,models.dev         # OpenCode / AI-SDK 的模型目录
+  - DOMAIN-SUFFIX,commandcode.ai     # CommandCode（终端编程 agent）
