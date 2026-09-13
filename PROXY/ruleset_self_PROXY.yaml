@@ -15,5 +15,3 @@ payload:
   - DOMAIN-SUFFIX,mousegesturesapi.com
 
   - DOMAIN-KEYWORD,dbzy  #douban采集
-
-  - DOMAIN-KEYWORD,proxy=true #iptv

@@ -9,7 +9,6 @@ payload:
   - DOMAIN-SUFFIX,q8at0puf.jogiyw.sbs
   - DOMAIN-SUFFIX,synology.com
   - DOMAIN-SUFFIX,api.nn.ci
-  - DOMAIN-SUFFIX,smtp
   - DOMAIN-SUFFIX,api.mcneel.com
   - DOMAIN-SUFFIX,tvfix.org
   - DOMAIN-SUFFIX,jsdelivr.net
@@ -56,3 +55,9 @@ payload:
   - DOMAIN-SUFFIX,jianying.com         # 剪映 / 即梦（jimeng.jianying.com 一并覆盖）
   - DOMAIN-SUFFIX,volcengineapi.com    # 火山引擎开放 API
   - DOMAIN-SUFFIX,minimax.chat         # MiniMax 国内 API
+
+  # --- 2026-09-13 审计补漏：以下 4 个实测掉到 MATCH → ⚓️Other → 🔰US（国内站不该出境）---
+  - DOMAIN-SUFFIX,volcengine.com       # 火山引擎主站/控制台（上面那条只覆盖 API 域）
+  - DOMAIN-SUFFIX,volces.com           # Ark / 豆包 API 端点（ark.cn-beijing.volces.com）
+  - DOMAIN-SUFFIX,larkoffice.com       # 飞书国际版
+  - DOMAIN-SUFFIX,sensetime.com        # 商汤

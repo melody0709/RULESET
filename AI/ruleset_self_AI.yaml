@@ -19,6 +19,8 @@ payload:
   - DOMAIN-SUFFIX,grokipedia.com
 
   # Google AI 零散入口
+  # colab 两条与 ruleset_self_AI_bulk 重复（该表在配置的 rules 里更早 → 实际由它接管走 🔰US）。
+  # 这里保留是为了本表被单独引用时语义完整，属有意重复，勿按"重复项"删。
   - DOMAIN-SUFFIX,colab.google
   - DOMAIN-SUFFIX,colab.research.google.com
   - DOMAIN,aistudio.google.com
@@ -36,6 +38,7 @@ payload:
   - DOMAIN-SUFFIX,pplx.ai
   - DOMAIN-SUFFIX,groq.com
   - DOMAIN-SUFFIX,together.xyz
+  # HuggingFace 两条同理：配置里由更早的 ruleset_self_AI_bulk 接管走 🔰US，此处保留同前。
   - DOMAIN-SUFFIX,huggingface.co
   - DOMAIN-SUFFIX,hf.co
   - DOMAIN-SUFFIX,mistral.ai
