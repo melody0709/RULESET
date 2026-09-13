@@ -9,6 +9,16 @@ payload:
   - DOMAIN-SUFFIX,q8at0puf.jogiyw.sbs
   - DOMAIN-SUFFIX,synology.com
   - DOMAIN-SUFFIX,api.nn.ci
+  - DOMAIN-KEYWORD,smtp               # 各类 SMTP 服务器直连
+  # ↑ 2026-09-13：原为 `DOMAIN-SUFFIX,smtp`（无点号 → 只匹配 *.smtp，实际不存在该后缀，等于不生效）。
+  #   改为 KEYWORD 后命中任何含 "smtp" 的域名，且本表排在全部规则之前 → 会抢走公共表里已收录的 SMTP 主机。
+  #   实测影响面（33 个常见 SMTP 主机做前后对比）：国内的全部本来就由 cn-lite 直连，**无增量**；
+  #   真正被改动的是 21 个境外主机，从代理组改成直连 —— 含
+  #   smtp.gmail.com / smtp-mail.google.com（原 🔰GooglePlay&Gmini）、
+  #   smtp-office365 系（原 😶‍🌫️Windows）、smtp.yandex/zoho/yahoo/protonmail（原 🥖Proxy）、
+  #   smtp.mailgun/sendgrid/postmark/mailjet/...（原 ⚓️Other=🔰US）。
+  #   ⚠️ 这些境外 SMTP 从国内直连很可能不通（Gmail 尤甚）。若出现发信失败，需在本表之前加例外，
+  #      例：`- DOMAIN,smtp.gmail.com,🔰GooglePlay&Gmini`
   - DOMAIN-SUFFIX,api.mcneel.com
   - DOMAIN-SUFFIX,tvfix.org
   - DOMAIN-SUFFIX,jsdelivr.net
