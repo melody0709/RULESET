@@ -1,4 +1,5 @@
 payload:
+  # 整段 .64–.127 设备强制直连 —— 用户自设、有意设计（2026-09-13 拍板，此后不再复查此条）
   - SRC-IP-CIDR,10.10.10.70/26,no-resolve
   - DOMAIN-SUFFIX,test-ipv6.com
   - DOMAIN-SUFFIX,bennq.top
@@ -75,3 +76,15 @@ payload:
   - DOMAIN-SUFFIX,volces.com           # Ark / 豆包 API 端点（ark.cn-beijing.volces.com）
   - DOMAIN-SUFFIX,larkoffice.com       # 飞书国际版
   - DOMAIN-SUFFIX,sensetime.com        # 商汤
+
+  # --- 2026-09-13 深夜全量体检补漏 3 项 ---
+  # 国行蒸汽平台：上游 steam-cn / media 表均未收录，原掉到 MATCH → ⚓️Other → 🔰US（方向反了）
+  - DOMAIN-SUFFIX,steamchina.net
+  # NTP 对时：原本分别落 😶‍🌫️Windows / 🍎Apple / 🥖Proxy 代理组；DMIT/mitce 节点为
+  # vless+TCP+Reality 不透传 UDP，NTP(udp/123) 走这些组会对时失败。对时直连无副作用。
+  - DOMAIN-SUFFIX,ntp.org              # pool.ntp.org 等（cn.ntp.org.cn 本就由 cn-lite 直连）
+  - DOMAIN-SUFFIX,time.windows.com
+  - DOMAIN-SUFFIX,time.apple.com
+  # Epic 游戏下载 CDN：media.mrs 有宽条目 +.akamaized.net，任何厂商的 Akamai CDN 都会被
+  # 捞进 🎬Media 走代理；此处个案补直连（大流量下载），不改上游表
+  - DOMAIN-SUFFIX,epicgames-download1.akamaized.net

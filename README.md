@@ -24,7 +24,7 @@ https://raw.githubusercontent.com/melody0709/RULESET/refs/heads/main/<路径>/<�
 
 | 表 | 指向组 | 位置 | 条数 | 用途 |
 |---|---|---|---|---|
-| `DIRECT/ruleset_self_DIRECT.yaml` | `DIRECT` | 第 3 条 | 50 | 强制直连：SRC-IP `10.10.10.70/26` 整段设备、IPTV / 直播源、jsdelivr·ghproxy、面板域名、国内模型/镜像站等。**含宽匹配**：`DOMAIN-KEYWORD,wogg` `360zy` `libvio` `argotunnel`、`DST-PORT,7844` |
+| `DIRECT/ruleset_self_DIRECT.yaml` | `DIRECT` | 第 3 条 | 55 | 强制直连：SRC-IP `10.10.10.70/26` 整段设备（**用户自设的有意设计，勿动勿再复查**）、IPTV / 直播源、jsdelivr·ghproxy、面板域名、国内模型/镜像站、国行 Steam（`steamchina.net`）、NTP 对时（`ntp.org` / `time.windows.com` / `time.apple.com`）、Epic 下载 CDN。**含宽匹配**：`DOMAIN-KEYWORD,wogg` `360zy` `libvio` `argotunnel`、`DST-PORT,7844` |
 | `AI/ruleset_self_AI_bulk.yaml` | `🔰US` | 第 4 条 | 7 | AI 大流量下载（HuggingFace / Colab / Civitai / Ollama registry）→ 机场，**必须早于 `ruleset_self_AI`**，否则会退回 AI 落地（300G/月 配额） |
 | `AI/ruleset_self_AI.yaml` | `🅰️AI` | 第 6 条 | 40 | AI 主域（Claude / Cursor / xAI / Gemini 入口 / Perplexity / OpenRouter …）+ AI 编程 CLI（OpenCode / CommandCode / models.dev，2026-09-13 实测 21 份公共表零收录）。`colab.*` 与 `huggingface.co` / `hf.co` 与 `AI_bulk` **有意重复**（本表被单独引用时语义才完整），勿按"重复项"删 |
 | `nas&tv/ruleset_self_nas&tv.yaml` | `⚓️nas&tv` | 第 7 条 | 1 | 按 SRC-IP 把 `10.10.10.189` 的流量交给 NAS/TV 专用出口 |
