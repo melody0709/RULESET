@@ -18,3 +18,8 @@ payload:
   - DOMAIN-SUFFIX,winstall.app
   - DOMAIN-SUFFIX,kuroapi.com
   - DOMAIN-SUFFIX,vercel.com
+  # --- 云与基础设施防漂移（2026-09-14）---
+  - DOMAIN-SUFFIX,amazonaws.com
+  - DOMAIN-SUFFIX,aws.amazon.com
+  - DOMAIN-SUFFIX,console.aws.amazon.com
+  - DOMAIN-SUFFIX,docker.io

@@ -96,3 +96,12 @@ payload:
   - DOMAIN-SUFFIX,opencode-zen.com   # 第三方实现用过的变体网关地址（保险条）
   - DOMAIN-SUFFIX,models.dev         # OpenCode / AI-SDK 的模型目录
   - DOMAIN-SUFFIX,commandcode.ai     # CommandCode（终端编程 agent）
+
+  # --- 国产 AI 保活直连（2026-09-14：防误判走海外/防消耗落地机 300G 额度）---
+  - DOMAIN-SUFFIX,kimi.ai            # 拯救 Kimi，杜绝消耗海外落地机 300G 流量
+  - DOMAIN-SUFFIX,moonshot.ai        # 同上
+  - DOMAIN-SUFFIX,siliconflow.com    # 硅基流动云端 API，从 MATCH 救回直连
+  - DOMAIN-SUFFIX,stepfun.com        # 阶跃星辰/跃问，从 MATCH 救回直连
+  - DOMAIN-SUFFIX,01.ai              # 零一万物官网与 API，从 tld-proxy 救回直连
+  - DOMAIN-SUFFIX,wanzhi.com         # 零一万物万知，从 MATCH 救回直连
+  - DOMAIN-SUFFIX,lingyiwanwu.com    # 零一万物备用域，从 MATCH 救回直连
