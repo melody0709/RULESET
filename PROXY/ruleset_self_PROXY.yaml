@@ -9,9 +9,16 @@ payload:
   # 整域规则会把 gateway.ai.cloudflare.com、apple-relay.cloudflare.com、
   # cp4.cloudflare.com 一并拖进本组 → 抢跑本该由 ai / GenAI / Apple 接管的域名。
   # 收窄为 Turnstile 人机验证域（保持原出口不变）；其余未收录的 *.cloudflare.com
-  # 仍会由 proxy.mrs（广义代理兜底）落到本组，等价于原行为。
+  # 仍会由 geosite:geolocation-!cn（广义代理兜底，v10.3 起替代 proxy.mrs）落到本组，等价于原行为。
   - DOMAIN-SUFFIX,challenges.cloudflare.com
   - DOMAIN-SUFFIX,teamviewer.com
   - DOMAIN-SUFFIX,mousegesturesapi.com
 
   - DOMAIN-KEYWORD,dbzy  #douban采集
+
+  # --- 微软短链改走代理（2026-09-14 v10.3 §三.4）---
+  # 根因：geosite:cn 含 TLD 级宽条目 `ms`，会让所有未命中 gl 的 .ms 域落 DIRECT；
+  # 这两条不在 geolocation-!cn 中，故显式钉回本组（本表 = rules 第 32 条，早于 GEOSITE,cn）。
+  # 1drv.ms / aka.ms 已在 geolocation-!cn 内，无需处理。
+  - DOMAIN,mstea.ms              # Teams 短链
+  - DOMAIN,outlookgroups.ms

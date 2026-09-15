@@ -105,3 +105,16 @@ payload:
   - DOMAIN-SUFFIX,01.ai              # 零一万物官网与 API，从 tld-proxy 救回直连
   - DOMAIN-SUFFIX,wanzhi.com         # 零一万物万知，从 MATCH 救回直连
   - DOMAIN-SUFFIX,lingyiwanwu.com    # 零一万物备用域，从 MATCH 救回直连
+
+  # --- 面板 / DashBoard 直连（2026-09-14：原 DustinWin private.mrs 独有、geosite:private 未收录的 10 条）---
+  # 若不加，这 10 条会落 geolocation-!cn → 🥖Proxy；面板本体用 IP:端口 访问不受影响，此处为保持原设计意图
+  - DOMAIN,yacd.metacubex.one           # MetaCubeX yacd 演示站
+  - DOMAIN,metacubexd.pages.dev         # MetaCubeX 官方 dashboard（Cloudflare Pages）
+  - DOMAIN,metacubex.github.io          # MetaCubeX 文档站
+  - DOMAIN,zephyruso.github.io          # zashboard（yacd 作者）
+  - DOMAIN,dash.sing-box.app            # sing-box 官方 dashboard
+  - DOMAIN,sing-box-dashboard.sagernet.org  # SagerNet dashboard
+  - DOMAIN,board.zash.run.place         # zashboard 演示站
+  - DOMAIN,p.to                         # 面板短链
+  - DOMAIN,acl4.ssr                     # ACL4SSR 面板/短链
+  - DOMAIN,wifi.cmcc                    # 中国移动光猫/路由器管理域
