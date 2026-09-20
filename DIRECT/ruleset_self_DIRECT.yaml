@@ -41,7 +41,7 @@ payload:
   - DOMAIN-KEYWORD,360zy  #360采集
   - DOMAIN-KEYWORD,libvio
   - DOMAIN-KEYWORD,argotunnel
-  - DST-PORT,7844
+  - DST-PORT,7844   # Cloudflare Tunnel
 
   # --- 新增/更新的 IPTV 频道域名 ---
   - DOMAIN-SUFFIX,163189.xyz
