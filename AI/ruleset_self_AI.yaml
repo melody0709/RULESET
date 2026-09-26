@@ -83,6 +83,12 @@ payload:
   # 原被 GEOSITE,microsoft 接走 → 😶‍🌫️Windows，与 AI 主站不同出口。
   - DOMAIN-SUFFIX,ai.azure.com
   - DOMAIN-SUFFIX,openai.azure.com
+  # Sift（反欺诈 / 风控）：Anthropic 客户端登录/支付链路调用。2026-09-26 面板实测命中 api3.siftscience.com，
+  #   原落 MATCH → ⚓️Other（与 AI 主站 🌄 落地节点不同出口）。
+  #   ⚠️ 按「厂商整域」收（用户 2026-09-26 拍板），与下一节 Sentry 的「只收精确主机」口径**有意不同**：
+  #      siftscience.com 是 Sift 自有服务域（非 Sentry 那种多租户数据平台），整域覆盖 api3 / api / cdn 等变体；
+  #      代价：少量非 AI 站点的 Sift 风控请求会一并进 🅰️AI（KB 级，可用性无影响）。
+  - DOMAIN-SUFFIX,siftscience.com
 
   # --- P1 遥测 / 崩溃上报 ---
   # ⚠️ 只收精确主机，**绝不要**改成宽 DOMAIN-SUFFIX,sentry.io —— 那是共享第三方 SDK，
@@ -91,6 +97,10 @@ payload:
   # 而实机用的是 o33249.ingest.us.sentry.io → suffix 不匹配，原落 🥖Proxy。
   # DOMAIN-REGEX 已用 mihomo v1.19.30 实测生效（非法正则只告警跳过、不 fatal，故须纳入回归清单）。
   - DOMAIN-REGEX,^o33249\.ingest\.(.+\.)?sentry\.io$
+  # Segment（产品埋点 / 事件管道）：Anthropic 客户端调用。2026-09-26 面板实测命中 api.segment.io，
+  #   原落 MATCH → ⚓️Other。⚠️ 同按「厂商整域」收（覆盖 api / cdn / 区域变体），与上面 Sentry 的精确主机口径**有意不同**。
+  - DOMAIN-SUFFIX,segment.io
+  - DOMAIN-SUFFIX,segment.com
 
   # --- P2 被宽条目抢走的 AI 资产域（个案补；不洗上游表、不改自建表的宽条目）---
   # 旧 GenAI 收录的 AI 页面资产分发域，被 media.mrs 的宽条目 +.cloudfront.net 吞进 🎬Media。
