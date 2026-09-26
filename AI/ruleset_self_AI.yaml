@@ -17,6 +17,10 @@ payload:
   - DOMAIN-SUFFIX,x.ai
   - DOMAIN-SUFFIX,grok.com
   - DOMAIN-SUFFIX,grokipedia.com
+  # 2026-09-26 用户拍板：统一 Grok 出口。x.com 整域（含 api.x.com / grok.x.com）留在本组，
+  # 不再落 GEOSITE,twitter → 🔰US。本表在 rules 里早于 GEOSITE,twitter，故此处生效。
+  # 代价：X 页面流量进 🌄 落地节点；twimg.com / video.twimg.com 等媒体域仍走 🔰US（有意，媒体是大流量）。
+  - DOMAIN-SUFFIX,x.com
 
   # Google AI 零散入口
   # colab 两条与 ruleset_self_AI_bulk 重复（该表在配置的 rules 里更早 → 实际由它接管走 🔰US）。
@@ -47,4 +51,52 @@ payload:
   - DOMAIN-SUFFIX,api.krill-ai.com
   - DOMAIN-SUFFIX,krill-ai.com
   - DOMAIN-SUFFIX,krill-code.com
+
+  # ==========================================================================
+  # AI 边界 / 遥测 / 外挂服务（2026-09-26 补强）
+  # 证据与推演：.plan/fix/ai-boundary-telemetry-audit-2026-09-26.md
+  # --------------------------------------------------------------------------
+  # 背景：2026-09-14 v10.3 用 MetaCubeX mrs-category-ai-!cn 换掉了 DustinWin ai.mrs
+  #   + HotKids GenAI。换表时丢掉的不只是冗余，还有下面这批「厂商外挂的第三方服务域」
+  #   （旧表 203 条 / 现行 179 条 / 仅存旧表 28 条，逐条回归比对得出）。
+  # 不补的后果：AI 主站在 🌄 落地节点、登录/风控/遥测域在别的出口 ——
+  #   属 2026-09-13 方案文档明确警告过的「主站与登录域出口不一致 → 更易触发二次验证」。
+  # ⚠️ 本表在 rules 里早于 ruleset_self_US / media / mrs-category-ai-!cn / geolocation-!cn，
+  #    且晚于 ruleset_self_DIRECT（保住 10.10.10.70/26 整段强制直连的语义）。勿下移。
+  # ⚠️ 遗留：本表排在 mrs-category-ai-cn → DIRECT 之后；若上游哪天把国际 AI 边界域误收进
+  #    category-ai-cn，会被抢成直连。概率极低，真出现再把本表前移一行。
+  # ==========================================================================
+
+  # --- P0 登录 / 人机验证 / 风控链路 ---
+  # OpenAI 登录人机验证（Arkose）。geolocation-!cn 只收了 github-api / roblox-api 两个变体，
+  # OpenAI 用的 openai-api.* 无人接管 → 原落 MATCH → ⚓️Other。旧 ai.mrs 收的是 client-api 变体。
+  - DOMAIN-SUFFIX,arkoselabs.com
+  # Statsig：OpenAI 的功能开关与实验链路。两套现行 AI 表内 statsig 零命中 → 原落 MATCH → ⚓️Other。
+  # 旧 ai.mrs（events.statsigapi.net / featuregates.org）与旧 GenAI（api.statsig.com）均收录。
+  - DOMAIN,api.statsig.com
+  - DOMAIN-SUFFIX,statsigapi.net
+  - DOMAIN-SUFFIX,featuregates.org
+  # Auth0：旧 ai.mrs 收录。ruleset_self_US 于 2026-09-13 撤下它时注明「交给 ai.mrs 接管后同出口」，
+  # 但 v10.3 删掉 ai.mrs 后没有任何表接管 → 意图落空，原落 🥖Proxy。此处补回。
+  - DOMAIN-SUFFIX,auth0.com
+  # Azure AI / Azure OpenAI 服务端点（旧 ai.mrs 有 +.ai.azure.com）。
+  # 原被 GEOSITE,microsoft 接走 → 😶‍🌫️Windows，与 AI 主站不同出口。
+  - DOMAIN-SUFFIX,ai.azure.com
+  - DOMAIN-SUFFIX,openai.azure.com
+
+  # --- P1 遥测 / 崩溃上报 ---
+  # ⚠️ 只收精确主机，**绝不要**改成宽 DOMAIN-SUFFIX,sentry.io —— 那是共享第三方 SDK，
+  #    补了会把非 AI 站点的监控上报一并扯进 AI 车（与 2026-09-13 旧决策一致）。
+  # 上游 category-ai-!cn 只有精确条目 o33249.ingest.sentry.io（无区域标签），
+  # 而实机用的是 o33249.ingest.us.sentry.io → suffix 不匹配，原落 🥖Proxy。
+  # DOMAIN-REGEX 已用 mihomo v1.19.30 实测生效（非法正则只告警跳过、不 fatal，故须纳入回归清单）。
+  - DOMAIN-REGEX,^o33249\.ingest\.(.+\.)?sentry\.io$
+
+  # --- P2 被宽条目抢走的 AI 资产域（个案补；不洗上游表、不改自建表的宽条目）---
+  # 旧 GenAI 收录的 AI 页面资产分发域，被 media.mrs 的宽条目 +.cloudfront.net 吞进 🎬Media。
+  - DOMAIN,d3ssuo6fbvr.cloudfront.net
+  # 上游 category-ai-!cn 已收录，但被 ruleset_self_US 的宽条目 DOMAIN-SUFFIX,amazonaws.com 抢先
+  # （本表在 rules 里早于 ruleset_self_US，故此处生效）。
+  # ⚠️ 正式版 2027kuromis.yaml 中 ruleset_self_US 早于本表，该条在正式版不生效 —— 有意不为此改正式版。
+  - DOMAIN,ppl-ai-file-upload.s3.amazonaws.com
 

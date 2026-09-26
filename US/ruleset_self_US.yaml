@@ -10,7 +10,12 @@ payload:
   - DOMAIN-SUFFIX,docker.com
   - DOMAIN-SUFFIX,v2ex.com
   # auth0.com 已移除：本表排在公共 AI 规则之前，会把 OpenAI 等 AI 站点的
-  # 登录/风控域固定到 🔰US，与主站出口（🅰️AI）不一致。交给 ai.mrs 接管后同出口。
+  # 登录/风控域固定到 🔰US，与主站出口（🅰️AI）不一致。
+  # 2026-09-26 闭环：原注释写的「交给 ai.mrs 接管」并未兑现 —— v10.3 删掉 ai.mrs 后
+  # 没有任何表接管它，auth0.com 实际落 🥖Proxy。现已在 `AI/ruleset_self_AI.yaml`
+  # 的「AI 边界 / 遥测 / 外挂服务」节显式补入 `DOMAIN-SUFFIX,auth0.com`，意图达成。
+  # ⚠️ 本表仍在 `ruleset_self_AI` 之前，其宽条目 `amazonaws.com` 会抢走上游 AI 表的
+  #    S3 域；已用 `DOMAIN,ppl-ai-file-upload.s3.amazonaws.com` 在 AI 表内个案补。
   - DOMAIN-SUFFIX,sms-activate.io
   - DOMAIN-SUFFIX,v2rayssr.com
   - DOMAIN-SUFFIX,bulianglin.com

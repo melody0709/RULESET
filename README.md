@@ -41,16 +41,40 @@ https://raw.githubusercontent.com/melody0709/RULESET/refs/heads/main/<路径>/<�
 |---|---|---|---|---|
 | `DIRECT/ruleset_self_DIRECT.yaml` | `DIRECT` | 第 26 条 | **76** | 强制直连：SRC-IP `10.10.10.70/26` 整段设备（**用户自设的有意设计，勿动勿再复查**）、IPTV / 直播源、jsdelivr·ghproxy、面板域名、国内模型/镜像站、国行 Steam（`steamchina.net`）、NTP 对时（`ntp.org` / `time.windows.com` / `time.apple.com`）、Epic 下载 CDN、**国产 AI 保活（2026-09-14 +7：`kimi.ai` `moonshot.ai` `siliconflow.com` `stepfun.com` `01.ai` `wanzhi.com` `lingyiwanwu.com`）**。**含宽匹配**：`DOMAIN-KEYWORD,wogg` `360zy` `libvio` `argotunnel`、`DST-PORT,7844`。**2026-09-14 +10 面板域**（补 `geosite:private` 未收录）：`yacd.metacubex.one` `metacubexd.pages.dev` `metacubex.github.io` `zephyruso.github.io` `dash.sing-box.app` `sing-box-dashboard.sagernet.org` `board.zash.run.place` `p.to` `acl4.ssr` `wifi.cmcc` |
 | `AI/ruleset_self_AI_bulk.yaml` | `🔰US` | 第 27 条 | 7 | AI 大流量下载（HuggingFace / Colab / Civitai / Ollama registry）→ 机场，**必须早于 `ruleset_self_AI`**，否则会退回 AI 落地（300G/月 配额） |
-| `AI/ruleset_self_AI.yaml` | `🅰️AI` | 第 29 条 | 36 | AI 主域（Claude / Cursor / xAI / Gemini 入口 / Perplexity / OpenRouter …）+ AI 编程 CLI（OpenCode / CommandCode / models.dev，2026-09-13 实测 21 份公共表零收录）。`colab.*` 与 `huggingface.co` / `hf.co` 与 `AI_bulk` **有意重复**（本表被单独引用时语义才完整），勿按"重复项"删 |
+| `AI/ruleset_self_AI.yaml` | `🅰️AI` | 第 29 条 | **47** | AI 主域（Claude / Cursor / xAI / Gemini 入口 / Perplexity / OpenRouter …）+ AI 编程 CLI（OpenCode / CommandCode / models.dev，2026-09-13 实测 21 份公共表零收录）+ **AI 边界 / 遥测 / 外挂服务（2026-09-26 +11，见下）**。`colab.*` 与 `huggingface.co` / `hf.co` 与 `AI_bulk` **有意重复**（本表被单独引用时语义才完整），勿按"重复项"删 |
 | `nas&tv/ruleset_self_nas&tv.yaml` | `⚓️nas&tv` | 第 33 条 | 1 | 按 SRC-IP 把 `10.10.10.189` 的流量交给 NAS/TV 专用出口 |
 | `miner/ruleset_self_miner.yaml` | `🔰miner` | 第 34 条 | 15 | 矿机（SRC-IP 5 台）+ 矿池域名直连分流 |
 | `PROXY/ruleset_self_PROXY.yaml` | `🥖Proxy` | 第 32 条 | **12** | 个人常用代理域；`challenges.cloudflare.com`（Turnstile）收窄版，勿再扩成整域 `cloudflare.com`。**2026-09-14 +2**：`mstea.ms` / `outlookgroups.ms`（`geosite:cn` 含 TLD 级 `ms` 宽条目，这两条不在 `geolocation-!cn` 内，需显式钉回本组） |
-| `US/ruleset_self_US.yaml` | `🔰US` | 第 30 条 | 21 | 固定走美国的个人域（docker / v2ex / vercel / 车主域 …）+ **云与基础设施防漂移（2026-09-14 +4：`amazonaws.com` `aws.amazon.com` `console.aws.amazon.com` `docker.io`）**；购物站 `amazon.com` 有意**不**进本表，继续由 `geosite:geolocation-!cn` 兜底。`auth0.com` 已移除（会抢跑 AI 登录域） |
+| `US/ruleset_self_US.yaml` | `🔰US` | 第 30 条 | 21 | 固定走美国的个人域（docker / v2ex / vercel / 车主域 …）+ **云与基础设施防漂移（2026-09-14 +4：`amazonaws.com` `aws.amazon.com` `console.aws.amazon.com` `docker.io`）**；购物站 `amazon.com` 有意**不**进本表，继续由 `geosite:geolocation-!cn` 兜底。`auth0.com` 已移除（会抢跑 AI 登录域）—— 2026-09-26 起由 `ruleset_self_AI` 正式接管，意图闭环。⚠️ 因本表早于 `ruleset_self_AI`，其宽条目 `amazonaws.com` 仍会抢走上游 AI 表的 S3 域，故 `ppl-ai-file-upload.s3.amazonaws.com` 在 AI 表内**个案补** |
 | `JP/ruleset_self_JP.yaml` | `🔰JP&KR` | 第 31 条 | 11 | 日本区站点 |
 | `HK/ruleset_self_HK.yaml` | —（**未引用**） | — | 0 | 预留空表，只有一行注释。要启用时在 `rules` 里加 `RULE-SET,ruleset_self_HK,🔰HK` |
 
 > **条数为实测值**（YAML `payload` 数组长度），不是行数；本表此前的条数列有偏差，已按实测更正。
 > **2026-09-14 v10.3 复测**：`DIRECT` 66 → **76**（+10 面板域）、`PROXY` 10 → **12**（+2 微软短链），其余不变。
+> **2026-09-26 复测**：`AI` 36 → **47**（+11，AI 边界 / 遥测 / 外挂服务），其余 8 表不变；`rules:` 顺序未动。
+
+### 2026-09-26 · AI 边界 / 遥测 / 外挂服务（`ruleset_self_AI` +11）
+
+起因：iPhone 端发现 ChatGPT 相关流量落 `ruleset_self_DIRECT`（后查明该设备当时在 `SRC-IP 10.10.10.70/26` 强制直连段内，已改为 `.232`）。顺带审计四条 AI 线（OpenAI / Claude / Gemini / Grok）的**边界域、遥测域、CDN 边缘**。
+
+根因：**2026-09-14 v10.3 用 MetaCubeX `mrs-category-ai-!cn` 换掉了 DustinWin `ai.mrs` + HotKids `GenAI`**，换表时丢掉的不只是冗余，还有一批「厂商外挂的第三方服务域」。方法是把两份旧表与现行表全量回归比对（旧 203 条 / 现行 179 条 / **仅存旧表 28 条**），再逐条跑落点判定。
+
+新增 11 条（全部并入 `AI/ruleset_self_AI.yaml`，**两份配置的 `rules:` 与 `rule-providers:` 零改动**）：
+
+| 档 | 条目 | 原落点 |
+|---|---|---|
+| P0 登录/风控 | `DOMAIN-SUFFIX,arkoselabs.com`（OpenAI 登录人机验证） | ⚓️Other（MATCH 裸奔） |
+| P0 | `DOMAIN,api.statsig.com` / `DOMAIN-SUFFIX,statsigapi.net` / `DOMAIN-SUFFIX,featuregates.org` | ⚓️Other |
+| P0 | `DOMAIN-SUFFIX,auth0.com`（回收，闭环 `ruleset_self_US` 2026-09-13 撤下时的意图） | 🥖Proxy |
+| P0 | `DOMAIN-SUFFIX,ai.azure.com` / `DOMAIN-SUFFIX,openai.azure.com` | 😶‍🌫️Windows |
+| P1 遥测 | `DOMAIN-REGEX,^o33249\.ingest\.(.+\.)?sentry\.io$`（覆盖含 `.us.` 的区域变体） | 🥖Proxy |
+| P2 宽条目抢跑 | `DOMAIN,d3ssuo6fbvr.cloudfront.net`（被 `media.mrs` 的 `+.cloudfront.net` 吞） | 🎬Media |
+| P2 | `DOMAIN,ppl-ai-file-upload.s3.amazonaws.com`（被本仓 `ruleset_self_US` 的 `amazonaws.com` 抢先） | 🔰US |
+| 用户拍板 | `DOMAIN-SUFFIX,x.com`（统一 Grok 出口，含 `api.x.com` / `grok.x.com`） | 🔰US（`geosite:twitter`） |
+
+验证：内核 `-t` 解析通过（无告警）＋ 运行时用 `hosts` 定向探活确认 8 个新条目全部 `match RuleSet/ai`、阴性对照 `match Match using REJECT` ＋ 改前/改后位移对比（before 用 `git show HEAD:AI/ruleset_self_AI.yaml`）**13 项位移全部 → 🅰️AI、0 项未达标、11 项对照零意外位移**。
+
+**未加（有意）**：`sentry.io` 泛域（共享 SDK，与 2026-09-13 决策一致）、`challenges.cloudflare.com`（Turnstile 非 IP 绑定型风控，保留 `ruleset_self_PROXY` 收窄设计）、`intercom` 系、`identrust.com`、`livekit.cloud` 裸域、`twimg.com`（X 媒体大流量）、`*.edgekey.net`（泛域）。完整推演见 `GIST/.plan/fix/ai-boundary-telemetry-audit-2026-09-26.md`。
 
 ## 维护约定
 
