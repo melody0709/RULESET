@@ -106,6 +106,13 @@ payload:
   - DOMAIN-SUFFIX,wanzhi.com         # 零一万物万知，从 MATCH 救回直连
   - DOMAIN-SUFFIX,lingyiwanwu.com    # 零一万物备用域，从 MATCH 救回直连
 
+  # --- WorkBuddy & CodeBuddy (腾讯 AI 智能体与代码编程套件，2026-10-04 补) ---
+  - DOMAIN-SUFFIX,workbuddy.cn       # 主站与各子域（自建表显式锁定，杜绝上游 mrs 规则漂移）
+  - DOMAIN-SUFFIX,codebuddy.cn       # CodeBuddy 核心服务与下载 CDN
+  - DOMAIN-SUFFIX,tencentbuddy.com   # WorkBuddy 官方容灾通信域（本机 failover.json 中实测已有失败记录）
+  - DOMAIN-SUFFIX,workbuddy.link     # 智能体沙箱 / Web 预览容器域（*.app-tencent.workbuddy.link）
+  - DOMAIN-SUFFIX,tcsdk.com          # 腾讯客户端 SDK 底座
+
   # --- 面板 / DashBoard 直连（2026-09-14：原 DustinWin private.mrs 独有、geosite:private 未收录的 10 条）---
   # 若不加，这 10 条会落 geolocation-!cn → 🥖Proxy；面板本体用 IP:端口 访问不受影响，此处为保持原设计意图
   - DOMAIN,yacd.metacubex.one           # MetaCubeX yacd 演示站
