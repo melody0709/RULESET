@@ -43,19 +43,9 @@ payload:
   - DOMAIN-KEYWORD,argotunnel
   - DST-PORT,7844   # Cloudflare Tunnel
 
-  # --- 新增/更新的 IPTV 频道域名 ---
-  - DOMAIN-SUFFIX,163189.xyz
-  - DOMAIN-SUFFIX,4666888.xyz
-  - DOMAIN-SUFFIX,loc.cc
-  - DOMAIN-SUFFIX,jdshipin.com
-  - DOMAIN-SUFFIX,livelivelive.space
-  - DOMAIN-SUFFIX,xiazhix1.top
+  # --- IPTV 频道域名 / IP 已整体迁至 IPTV/ruleset_self_iptv.yaml（2026-10-22，随 📺IPTV 组可切换）---
+  # eztv.vip 实测为 EZTV BT 站（阿里云杭州 IP），非直播源，留在本表固定直连、不随 IPTV 组切换
   - DOMAIN-SUFFIX,eztv.vip
-  - DOMAIN,ntd02.akamaized.net
-
-  # --- IPTV 直连 IP 地址 ---
-  - IP-CIDR,61.184.46.85/32,no-resolve
-  - IP-CIDR,8.138.7.223/32,no-resolve
 
 
   - DOMAIN-SUFFIX,bytedance.com

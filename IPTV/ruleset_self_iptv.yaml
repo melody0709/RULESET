@@ -1,0 +1,33 @@
+payload:
+  # ===== IPTV 直播源（指向 📺IPTV 组：select，默认 DIRECT，面板可整体切换）=====
+  # 2026-10-22 新建：web.m3u「港澳台」分组 13 条 + 自 ruleset_self_DIRECT 迁入的旧 IPTV 段 9 条。
+  # ⚠️ 本表在 rules 里必须早于 media / geolocation-!cn：
+  #    两条 *.cloudfront.net 精确主机与 streamipcfapp.akamaized.net，
+  #    要抢在 media.mrs 的 +.cloudfront.net / +.akamaized.net 宽条目之前命中。
+  # ⚠️ 不要把 cloudfront.net / akamaized.net / streamlock.net 写成整域（多租户 CDN，会误伤流媒体等业务）。
+
+  # --- 2026-10-22 新增：web.m3u「港澳台」分组（76 条频道）---
+  - DOMAIN-SUFFIX,123.rr.kg               # cdn/cdn3/cdn6/cdn10 共 50 条
+  - DOMAIN-SUFFIX,indevs.in               # cdn3 共 10 条
+  - DOMAIN-SUFFIX,mediacast.hk            # v3（耀才财经）
+  - DOMAIN-SUFFIX,dalitv.com.tw           # www（Dali TV）
+  - DOMAIN-SUFFIX,ccdntech.com            # mobile（唯心電視；多租户 CDN，若误伤优先收窄成精确主机）
+  - DOMAIN-SUFFIX,amagi.tv                # petclub-samsungaus（Pet Club TV；FAST 分发平台，同上）
+  - DOMAIN,5ddce30eb4b55.streamlock.net   # 人间卫视（Wowza 多租户，只锁精确主机）
+  - DOMAIN,dqhxk7sbp7xog.cloudfront.net   # 好消息综合台
+  - DOMAIN,d3e05csss9c272.cloudfront.net  # CGN中文台
+  - DOMAIN,streamipcfapp.akamaized.net    # TITV
+  - DOMAIN,zmgd.zyrnet.com                # 凤凰中文/资讯（m3u 仅用此主机）
+  - IP-CIDR,173.208.234.146/32,no-resolve # 鳳凰中文/Now新聞/資訊（裸 IP URL）
+  - IP-CIDR,38.64.72.148/32,no-resolve    # TVBS Asia（裸 IP URL）
+
+  # --- 2026-10-22 自 ruleset_self_DIRECT 迁入（原「IPTV 频道域名 / 直连 IP」段；默认 DIRECT，行为不变）---
+  - DOMAIN-SUFFIX,163189.xyz
+  - DOMAIN-SUFFIX,4666888.xyz             # 2026-10-22 实测无 A 记录（历史源，保留占位）
+  - DOMAIN-SUFFIX,loc.cc                  # 2026-10-22 实测 HTTP 超时（历史源，保留占位）
+  - DOMAIN-SUFFIX,jdshipin.com            # 2026-10-22 实测无 A 记录（历史源，保留占位）
+  - DOMAIN-SUFFIX,livelivelive.space      # 2026-10-22 实测无 A 记录（历史源，保留占位）
+  - DOMAIN-SUFFIX,xiazhix1.top            # 2026-10-22 实测无 A 记录（历史源，保留占位）
+  - DOMAIN,ntd02.akamaized.net            # NTD 直播源
+  - IP-CIDR,61.184.46.85/32,no-resolve
+  - IP-CIDR,8.138.7.223/32,no-resolve
