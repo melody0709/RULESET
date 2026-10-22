@@ -14,9 +14,11 @@ payload:
   - DOMAIN-SUFFIX,dalitv.com.tw           # www（Dali TV）
   - DOMAIN-SUFFIX,ccdntech.com            # mobile（唯心電視；多租户 CDN，若误伤优先收窄成精确主机）
   - DOMAIN-SUFFIX,amagi.tv                # petclub-samsungaus（Pet Club TV；FAST 分发平台，同上）
+  - DOMAIN-SUFFIX,yjjcfw.com              # hlsz（纬来体育；M3U8与切片均在同域）
   - DOMAIN,5ddce30eb4b55.streamlock.net   # 人间卫视（Wowza 多租户，只锁精确主机）
   - DOMAIN,dqhxk7sbp7xog.cloudfront.net   # 好消息综合台
   - DOMAIN,d3e05csss9c272.cloudfront.net  # CGN中文台
+  - DOMAIN,d2jc41c1shgcol.cloudfront.net  # 台湾新闻系列 (三立/TVBS/东森/华视/民视/中视/中天；多租户CDN锁精确主机)
   - DOMAIN,streamipcfapp.akamaized.net    # TITV
   - DOMAIN,zmgd.zyrnet.com                # 凤凰中文/资讯（m3u 仅用此主机）
 
