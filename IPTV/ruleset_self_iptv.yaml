@@ -1,6 +1,7 @@
 payload:
   # ===== IPTV 直播源（指向 📺IPTV 组：select，默认 DIRECT，面板可整体切换）=====
   # 2026-10-22 新建：web.m3u「港澳台」分组 13 条 + 自 ruleset_self_DIRECT 迁入的旧 IPTV 段 9 条。
+  # 2026-10-22 补全：302 重定向媒体切片 IP（凤凰/Now 等 AS32097 切片节点与 Cogent 切片节点）。
   # ⚠️ 本表在 rules 里必须早于 media / geolocation-!cn：
   #    两条 *.cloudfront.net 精确主机与 streamipcfapp.akamaized.net，
   #    要抢在 media.mrs 的 +.cloudfront.net / +.akamaized.net 宽条目之前命中。
@@ -18,8 +19,17 @@ payload:
   - DOMAIN,d3e05csss9c272.cloudfront.net  # CGN中文台
   - DOMAIN,streamipcfapp.akamaized.net    # TITV
   - DOMAIN,zmgd.zyrnet.com                # 凤凰中文/资讯（m3u 仅用此主机）
-  - IP-CIDR,173.208.234.146/32,no-resolve # 鳳凰中文/Now新聞/資訊（裸 IP URL）
+
+  # --- 裸 IP URL 与 302 重定向媒体切片节点（WholeSale Internet / Cogent）---
+  - IP-CIDR,173.208.234.146/32,no-resolve # 鳳凰系列/Now新聞 调度入口
+  - IP-CIDR,69.30.230.130/32,no-resolve   # 鳳凰中文/資訊/香港 302 切片节点 (端口 82)
+  - IP-CIDR,173.208.164.58/32,no-resolve  # Now新聞台 302 切片节点 (端口 82)
+  - IP-CIDR,69.30.230.0/24,no-resolve     # 鳳凰切片机房同网段兜底（防漂移）
+  - IP-CIDR,173.208.164.0/24,no-resolve   # Now切片机房同网段兜底（防漂移）
+  - IP-CIDR,173.208.234.0/24,no-resolve   # 调度机房同网段兜底
   - IP-CIDR,38.64.72.148/32,no-resolve    # TVBS Asia（裸 IP URL）
+  - IP-CIDR,38.75.136.137/32,no-resolve   # CHC 影院系列 (端口 98)
+  - IP-CIDR,192.187.124.34/32,no-resolve  # 综合/经典点播 (端口 81)
 
   # --- 2026-10-22 自 ruleset_self_DIRECT 迁入（原「IPTV 频道域名 / 直连 IP」段；默认 DIRECT，行为不变）---
   - DOMAIN-SUFFIX,163189.xyz
